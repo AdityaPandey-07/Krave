@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KRAVE MOMOS | Premium Momos Cafe</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #E63946;  /* Vibrant red for momos */
+            --secondary: #457B9D; /* Complementary blue */
+            --accent: #A8DADC;   /* Light accent */
+            --dark: #1D3557;     /* Dark blue */
+            --light: #F1FAEE;    /* Cream background */
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        /* Header/Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--dark);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-cta {
+            background-color: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .nav-cta:hover {
+            background-color: #c1121f;
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .hero-btn:hover {
+            background-color: #c1121f;
+        }
+        
+        /* Menu Section */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            background: none;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .category-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item-img {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+        
+        .menu-item-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .menu-item-price {
+            color: var(--primary);
+        }
+        
+        .menu-item-desc {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .add-to-cart {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #c1121f;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #ddd;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background-color: #eee;
+            border-radius: 8px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        /* Locations Section */
+        .locations {
+            background-color: #f9f9f9;
+        }
+        
+        .location-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .location-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .location-img {
+            height: 200px;
+            background-color: #eee;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .location-info {
+            padding: 1.5rem;
+        }
+        
+        .location-info h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .location-info p {
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 5% 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">KRAVE <span>MOMOS</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="tel:9305038381" class="nav-cta">Order Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Authentic Momos Experience</h1>
+            <p>Discover the perfect blend of traditional flavors and modern twists in every bite at Krave Momos.</p>
+            <a href="#menu" class="hero-btn">Explore Menu</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section" id="menu">
+        <div class="section-title">
+            <h2>Our Signature Momos</h2>
+            <p>Handcrafted with premium ingredients and authentic spices for an unforgettable taste experience.</p>
+        </div>
+        
+        <div class="menu-categories">
+            <button class="category-btn active">All</button>
+            <button class="category-btn">Steamed</button>
+            <button class="category-btn">Fried</button>
+            <button class="category-btn">BBQ</button>
+            <button class="category-btn">Specialty</button>
+        </div>
+        
+        <div class="menu-grid">
+            <!-- Menu Item 1 -->
+            <div class="menu-item">
+                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">
+                        <span>Steam Veg Momos</span>
+                        <span class="menu-item-price">₹80</span>
+                    </h3>
+                    <p class="menu-item-desc">Delicate steamed dumplings filled with fresh vegetables and secret spices.</p>
+                    <a href="#" class="add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Menu Item 2 -->
+            <div class="menu-item">
+                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1630911429094-7a1c8b5a434e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">
+                        <span>Paneer BBQ Momos</span>
+                        <span class="menu-item-price">₹120</span>
+                    </h3>
+                    <p class="menu-item-desc">Grilled to perfection with our signature BBQ sauce and stuffed with paneer.</p>
+                    <a href="#" class="add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Menu Item 3 -->
+            <div class="menu-item">
+                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">
+                        <span>Chicken Schezwan</span>
+                        <span class="menu-item-price">₹110</span>
+                    </h3>
+                    <p class="menu-item-desc">Spicy chicken momos with our special Schezwan sauce that packs a punch.</p>
+                    <a href="#" class="add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Menu Item 4 -->
+            <div class="menu-item">
+                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1630911429094-7a1c8b5a434e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">
+                        <span>Afghani Momos</span>
+                        <span class="menu-item-price">₹130</span>
+                    </h3>
+                    <p class="menu-item-desc">Rich and creamy momos with our special Afghani marinade and cashew paste.</p>
+                    <a href="#" class="add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Menu Item 5 -->
+            <div class="menu-item">
+                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">
+                        <span>Cheese Burst</span>
+                        <span class="menu-item-price">₹140</span>
+                    </h3>
+                    <p class="menu-item-desc">Oozing with molten cheese in every bite - a cheese lover's dream!</p>
+                    <a href="#" class="add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+            
+            <!-- Menu Item 6 -->
+            <div class="menu-item">
+                <div class="menu-item-img" style="background-image: url('https://images.unsplash.com/photo-1630911429094-7a1c8b5a434e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');"></div>
+                <div class="menu-item-content">
+                    <h3 class="menu-item-title">
+                        <span>Tandoori Momos</span>
+                        <span class="menu-item-price">₹150</span>
+                    </h3>
+                    <p class="menu-item-desc">Smoky tandoori flavored momos cooked in clay oven for authentic taste.</p>
+                    <a href="#" class="add-to-cart">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Our Story</h2>
+                <p>Founded in 2020, Krave Momos began as a small street food stall in Prayagraj with a passion for creating the most flavorful momos in town. What started as a humble venture soon became the talk of the city.</p>
+                <p>Today, we take pride in serving authentic momos recipes passed down through generations, combined with innovative twists that keep our customers coming back for more.</p>
+                <p>Every momo is handcrafted with care, using only the freshest ingredients and our secret spice blends that make our flavors truly unique.</p>
+            </div>
+            <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');"></div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="section locations" id="locations">
+        <div class="section-title">
+            <h2>Our Locations</h2>
+            <p>Visit us at any of our convenient locations across the city</p>
+        </div>
+        
+        <div class="location-cards">
+            <!-- Location 1 -->
+            <div class="location-card">
+                <div class="location-img" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=Radhakund,Prayagraj&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7CRadhakund,Prayagraj&key=YOUR_API_KEY');"></div>
+                <div class="location-info">
+                    <h3>Radhakund</h3>
+                    <p>Opposite Rocket Park, Kalindipuram</p>
+                    <p>Prayagraj, Uttar Pradesh</p>
+                    <p>Open: 11AM - 10PM</p>
+                    <p>Phone: 9305038381</p>
+                </div>
+            </div>
+            
+            <!-- Location 2 -->
+            <div class="location-card">
+                <div class="location-img" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=CivilLines,Prayagraj&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7CCivilLines,Prayagraj&key=YOUR_API_KEY');"></div>
+                <div class="location-info">
+                    <h3>Civil Lines</h3>
+                    <p>Near Company Garden</p>
+                    <p>Prayagraj, Uttar Pradesh</p>
+                    <p>Open: 11AM - 11PM</p>
+                    <p>Phone: 9315048492</p>
+                </div>
+            </div>
+            
+            <!-- Location 3 -->
+            <div class="location-card">
+                <div class="location-img" style="background-image: url('https://maps.googleapis.com/maps/api/staticmap?center=Katra,Prayagraj&zoom=15&size=600x300&maptype=roadmap&markers=color:red%7CKatra,Prayagraj&key=YOUR_API_KEY');"></div>
+                <div class="location-info">
+                    <h3>Katra</h3>
+                    <p>Near Allahabad University</p>
+                    <p>Prayagraj, Uttar Pradesh</p>
+                    <p>Open: 10AM - 10PM</p>
+                    <p>Phone: 9305038381</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>KRAVE MOMOS</h3>
+                <p>Authentic momos with modern twists. Serving Prayagraj since 2020.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="tel:9305038381">9305038381</a></li>
+                    <li><a href="tel:9315048492">9315048492</a></li>
+                    <li><a href="mailto:info@kravemomos.com">info@kravemomos.com</a></li>
+                    <li>Plot no 23, Radhakund</li>
+                    <li>Prayagraj, UP</li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Opening Hours</h3>
+                <ul>
+                    <li>Monday - Friday: 11AM - 10PM</li>
+                    <li>Saturday - Sunday: 11AM - 11PM</li>
+                    <li>Holidays: 12PM - 10PM</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Krave Momos. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script>
+        // Simple JavaScript for category filtering
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(b => {
+                    b.classList.remove('active');
+                });
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Here you would typically filter menu items
+                // This is just a placeholder for the functionality
+                console.log('Filter by: ' + this.textContent);
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
